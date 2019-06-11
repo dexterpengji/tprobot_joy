@@ -1,0 +1,44 @@
+<launch>
+
+ <!-- joy node -->
+  <node pkg="joy" type="joy_node" name="turtle_joy" respawn="true">
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="deadzone" value="0.12" />
+  </node>
+
+ <!-- joystick -->
+  <!-- robot motion -->
+  <param name="axis_move_linear_x" value="1" type="int"/>
+  <param name="axis_move_linear_y" value="0" type="int"/>
+  <param name="axis_move_angular_l" value="2" type="int"/>
+  <param name="axis_move_angular_r" value="5" type="int"/>
+  <!-- camera motion -->
+  <param name="axis_view_angular_x" value="3" type="int"/>
+  <param name="axis_view_angular_y" value="4" type="int"/>
+  <!-- actuator motion -->
+  <param name="axis_actuarot_linear" value="7" type="int"/>
+  <!-- control mode -->
+  <param name="button_control_mode_A" value="0" type="int"/>
+  <param name="button_control_mode_B" value="1" type="int"/>
+  <param name="button_control_mode_X" value="2" type="int"/>
+  <param name="button_control_mode_Y" value="3" type="int"/>
+  
+<!-- scale-to enlarge the value from joystick -->
+  <!-- robot motion -->
+  <param name="scale_move_linear_x" value="500" type="double"/>
+  <param name="scale_move_linear_y" value="-500" type="double"/>
+  <param name="scale_move_angular" value="20" type="double"/>
+  <!-- camera motion -->
+  <param name="scale_view_angular_x" value="90" type="int"/>
+  <param name="scale_view_angular_y" value="45" type="int"/>
+  <!-- motor speed and acceleration limit -->
+  <param name="motor_speed_limit_x" value="2000" type="int"/>
+  <param name="motor_speed_limit_y" value="-2000" type="int"/>
+  <param name="motor_angular_speed_limit" value="2000" type="int"/>
+  <param name="motor_acc_limit_front" value="16000" type="int"/>
+  <param name="motor_acc_limit_rear" value="16000" type="int"/>
+  
+<!-- tprobot_joy node -->
+  <node pkg="tprobot_joy" type="tprobot_teleop_joy" name="teleop"/>
+
+</launch>
